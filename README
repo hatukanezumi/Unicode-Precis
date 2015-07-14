@@ -1,5 +1,5 @@
 ====================================================================
-Unicode-Precis - RFC 7564 PRECIS Framework - Enforcement
+Unicode-Precis - RFC 7564 PRECIS Framework
 ====================================================================
 
 Unicode-Precis Package is Copyright (C) 2015,
@@ -24,12 +24,11 @@ Documentations
 Two modules are contained. For more details read following POD
 documentations:
 
-  Unicode::Precis - RFC 7564 PRECIS Framework - Enforcement
+  Unicode::Precis - RFC 7564 PRECIS Framework
   Unicode::Precis::Utils - Utility functions for PRECIS enforcement
 
-For japonophones, PODs in Japanese language are also included:
+For japonophones, a POD in Japanese language is also included:
 
-  POD2::JA::Unicode::Precis - RFC 7564 PRECISフレームワーク - XXXX
-  POD2::JA::Unicode::Precis::Utils - XXXX
+  POD2::JA::Unicode::Precis - RFC 7564 PRECISフレームワーク
 
 $$

@@ -4,19 +4,24 @@ package MY;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME             => 'Unicode::Precis::Utils',
-    VERSION_FROM     => 'Utils.pm',
-    MIN_PERL_VERSION => 5.008001,
-    BUILD_REQUIRES   => {
+    NAME               => 'Unicode::Precis::Utils',
+    VERSION_FROM       => 'Utils.pm',
+    MIN_PERL_VERSION   => 5.008001,
+    CONFIGURE_REQUIRES => {'ExtUtils::MakeMaker' => 0,},
+    BUILD_REQUIRES     => {
         'Encode'       => '0',
         'Unicode::UCD' => '0',
+    },
+    PREREQ_PM => {
+        'Exporter' => '0',
+        'XSLoader' => '0',
     },
     ABSTRACT_FROM => 'Utils.pm',
     AUTHOR        => 'Hatuka*nezumi - IKEDA Soji <hatuka@nezumi.nu>',
     LIBS          => [''],
     DEFINE        => '',
     INC           => '-I.',
-    # OBJECT            => '$(O_FILES)', # link all the C files too
+    dist          => {PREOP => '$(MAKE) preop'},
 );
 
 sub clean {
@@ -58,4 +63,3 @@ preop:
 
 EOF
 }
-

@@ -1,5 +1,10 @@
 Revision history for Perl extension Unicode::Precis.
 
-0.000_01  Sat Jul 12 15:10:34 2015
-- Initial commit.
+0.000_02  Tue Jul 14 2015
+
+  - Initial CPAN upload.
+
+0.000_01  Sat Jul 11 2015
+
+  - Initial commit.
 

@@ -12,9 +12,9 @@ use Encode qw(is_utf8 _utf8_on _utf8_off);
 use Unicode::BiDiRule qw(check);
 use Unicode::Normalize qw(normalize);
 use Unicode::Precis::Preparation qw(prepare FreeFormClass IdentifierClass);
-use Unicode::Precis::Utils;
+use Unicode::Precis::Utils qw(compareExactly decomposeWidth foldCase mapSpace);
 
-our $VERSION    = '0.000_01';
+our $VERSION = '0.000_02';
 $VERSION = eval $VERSION;    # see L<perlmodstyle>
 
 sub new {
@@ -24,17 +24,27 @@ sub new {
     bless {%options} => $class;
 }
 
+sub compare {
+    my $self = shift;
+    my $stringA = $self->enforce(shift);
+    my $stringB = $self->enforce(shift);
+
+    return compareExactly($stringA, $stringB);
+}
+
 sub enforce {
-    my ($self, $string, %options) = @_;
+    my ($self, $string) = @_;
+
+    return undef unless defined $string;
 
     if (lc($self->{WidthMappingRule} || '') eq 'decomposition') {
-        return unless defined Unicode::Precis::Utils::decomposeWidth($string);
+        decomposeWidth($string);
     }
     if (lc($self->{AdditionalMappingRule} || '') eq 'space') {
-        return unless defined Unicode::Precis::Utils::mapSpace($string);
+        mapSpace($string);
     }
     if (lc($self->{CaseMappingRule} || '') eq 'fold') {
-        return unless defined Unicode::Precis::Utils::foldCase($string);
+        foldCase($string);
     }
     if ($self->{NormalizationRule}) {
         if (is_utf8($string)) {
@@ -46,23 +56,20 @@ sub enforce {
                 eval { normalize(uc $self->{NormalizationRule}, $string) };
             _utf8_off($string);
         }
-        return unless defined $string;
+        return undef unless defined $string;
     }
-    if (ref $self->{ASCIIRule} eq 'CODE' and $string !~ /[^\x20-\x7E]/) {
-	return unless defined ($string = $self->{ASCIIRule}->($string));
-    } else {
-	if (lc($self->{DirectionalityRule} || '') eq 'bidi') {
-            return unless defined check($string);
-        }
-        my $stringclass = {
-            freeformclass   => FreeFormClass,
-            identifierclass => IdentifierClass,
-        }->{lc($self->{StringClass} || '')} || 0;
-        return
-	    unless defined prepare($string, $stringclass);
+    if (lc($self->{DirectionalityRule} || '') eq 'bidi') {
+        return undef unless defined check($string, 0);
     }
+    my $stringclass = {
+        freeformclass   => FreeFormClass,
+        identifierclass => IdentifierClass,
+        }->{lc($self->{StringClass} || '')}
+        || 0;
+    return undef
+        unless defined prepare($string, $stringclass);
     if (ref $self->{OtherRule} eq 'CODE') {
-        return
+        return undef
             unless defined($string = $self->{OtherRule}->($string));
     }
 
@@ -76,14 +83,15 @@ __END__
 
 =head1 NAME
 
-Unicode::Precis - RFC 7564 PRECIS Framework - Enforcement
+Unicode::Precis - RFC 7564 PRECIS Framework
 
 =head1 SYNOPSIS
 
   use Unicode::Precis;
   $precis = Unicode::Precis->new(options...);
   $string = $precis->enforce($input);
-
+  $equals = $precis->compare($inputA, $inputB);
+  
 =head1 DESCRIPTION
 
 L<Unicode::Precis> performs enforcement of
@@ -124,15 +132,10 @@ using foldCase().
 
 If specified, normalizes string using given normalization form.
 
-=item LDHRule =E<gt> $subref
-
-If specified and $string consists only of US-ASCII graphic characters,
-replaces string with the result of subroutine referred by $subref, and
-DirectionalityRule (see below) is not applied.
-
 =item DirectionalityRule =E<gt> 'BiDi'
 
-If specifiled, checks string against BiDi Rule.
+If specifiled and the string contains right-to-left character,
+checks string against BiDi Rule.
 
 =item StringClass =E<gt> 'FreeFormClass' | 'IdentifierClass'
 
@@ -140,16 +143,26 @@ If specified, checks string according to given string class.
 
 =item OtherRule =E<gt> $subref
 
-If specified, replaces string with the result of subroutine referred by
-$subref.
+If specified, replaces and/or checks string with the result of subroutine
+referred by $subref.
 
 =back
 
-=item enforce ( $string, [ Replacement =E<gt> $replacement ] )
+=item compare ( $stringA, $stringB )
+
+I<Instance method>.
+Compares strings.
+If enforcement on both strings succeeds,
+compares them using compareExactly() and returns C<1> or C<0>.
+Otherwise returns C<undef>.
+
+Arguments $stringA and $stringB are not modified.
+
+=item enforce ( $string )
 
 I<Instance method>.
 Performs enforcement on the string.
-If processing succeeded, modifys $string and returns it.
+If processing succeeded, modifys argument $string and returns it.
 Otherwise returns C<undef>.
 
 =back
@@ -186,7 +199,8 @@ RFC 7564 I<PRECIS Framework: Preparation, Enforcement, and Comparison of
 Internationalized Strings in Application Protocols>.
 L<https://tools.ietf.org/html/rfc7564>.
 
-L<Unicode::BiDiRule>, L<Unicode::Normalize>, L<Unicode::Precis::Preparation>.
+L<Unicode::BiDiRule>, L<Unicode::Normalize>, L<Unicode::Precis::Preparation>,
+L<Unicode::Precis::Utils>.
 
 =head1 AUTHOR
 

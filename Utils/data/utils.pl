@@ -89,7 +89,7 @@ sub build_map {
 
 sub add_map {
     my $map     = shift;
-    my $mapname = shift . '_map';
+    my $mapname = shift() . '_map';
     my $cp      = shift;
     my $dest    = shift;
 
