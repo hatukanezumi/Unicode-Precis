@@ -1,4 +1,5 @@
 Changes
+lib/POD2/JA/Unicode/Precis.pm
 lib/Unicode/Precis.pm
 Makefile.PL
 MANIFEST
