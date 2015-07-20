@@ -1,4 +1,4 @@
-use 5.008001;
+use 5.008;
 
 package MY;
 use ExtUtils::MakeMaker;
@@ -6,7 +6,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME               => 'Unicode::Precis::Utils',
     VERSION_FROM       => 'Utils.pm',
-    MIN_PERL_VERSION   => 5.008001,
+    MIN_PERL_VERSION   => 5.008,
     CONFIGURE_REQUIRES => {'ExtUtils::MakeMaker' => 0,},
     BUILD_REQUIRES     => {
         'Encode'       => '0',

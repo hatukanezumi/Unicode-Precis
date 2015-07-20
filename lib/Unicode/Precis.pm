@@ -12,9 +12,10 @@ use Encode qw(is_utf8 _utf8_on _utf8_off);
 use Unicode::BiDiRule qw(check);
 use Unicode::Normalize qw(normalize);
 use Unicode::Precis::Preparation qw(prepare FreeFormClass IdentifierClass);
-use Unicode::Precis::Utils qw(compareExactly decomposeWidth foldCase mapSpace);
+use Unicode::Precis::Utils
+    qw(compareExactly decomposeWidth foldCase mapSpace);
 
-our $VERSION = '0.000_02';
+our $VERSION = '0.01';
 $VERSION = eval $VERSION;    # see L<perlmodstyle>
 
 sub new {
@@ -25,7 +26,7 @@ sub new {
 }
 
 sub compare {
-    my $self = shift;
+    my $self    = shift;
     my $stringA = $self->enforce(shift);
     my $stringB = $self->enforce(shift);
 
@@ -40,8 +41,16 @@ sub enforce {
     if (lc($self->{WidthMappingRule} || '') eq 'decomposition') {
         decomposeWidth($string);
     }
-    if (lc($self->{AdditionalMappingRule} || '') eq 'space') {
+    my $mappingrule = lc($self->{AdditionalMappingRule} || '');
+    if ($mappingrule =~ /\bmapspace/) {
         mapSpace($string);
+    }
+    if ($mappingrule =~ /\bstripspace/) {
+        $string =~ s/\A\x20+//;
+        $string =~ s/\x20+\z//;
+    }
+    if ($mappingrule =~ /\bunifyspace/) {
+        $string =~ s/\x20\x20+/\x20/g;
     }
     if (lc($self->{CaseMappingRule} || '') eq 'fold') {
         foldCase($string);
@@ -73,7 +82,8 @@ sub enforce {
             unless defined($string = $self->{OtherRule}->($string));
     }
 
-    $_[1] = $string;
+    eval { $_[1] = $string };
+    $string;
 }
 
 1;
@@ -83,7 +93,7 @@ __END__
 
 =head1 NAME
 
-Unicode::Precis - RFC 7564 PRECIS Framework
+Unicode::Precis - RFC 7564 PRECIS Framework - Enforcement and Comparison
 
 =head1 SYNOPSIS
 
@@ -94,7 +104,7 @@ Unicode::Precis - RFC 7564 PRECIS Framework
   
 =head1 DESCRIPTION
 
-L<Unicode::Precis> performs enforcement of
+L<Unicode::Precis> performs enforcement and comparison of
 UTF-8 bytestring or Unicode string according to PRECIS Framework.
 
 Note that bytestring will not be upgraded but treated as UTF-8 sequence
@@ -107,7 +117,7 @@ by this module.
 =item new ( options ... )
 
 I<Constructor>.
-Creates new instance of L<Unicode::Precis>.
+Creates new instance of L<Unicode::Precis> class.
 Following options may be specified.
 
 =over
@@ -118,10 +128,28 @@ If specified, maps fullwidth and halfwidth characters to their decomposition
 mappings
 using decomposeWidth().
 
-=item AdditionalMappingRule =E<gt> 'Space'
+=item AdditionalMappingRule =E<gt> 'I<options...>'
 
-If specified, maps non-ASCII space characters to ASCII space
+If specified, maps spaces.
+I<options...> may include any of following words:
+
+=over
+
+=item C<MapSpace>
+
+Maps non-ASCII space characters to ASCII space
 using mapSpace().
+
+=item C<StripSpace>
+
+Removes ASCII space character(s) at the beginning and/or ending of the string.
+
+=item C<UnifySpace>
+
+Maps sequences of more than one ASCII space character to a single ASCII space
+character.
+
+=back
 
 =item CaseMappingRule =E<gt> 'Fold'
 

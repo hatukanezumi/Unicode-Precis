@@ -1,0 +1,49 @@
+
+=encoding utf-8
+
+=head1 NAME
+
+Unicode::Precis::SASLprep~[ja] - PRECIS「SASLprep」プロファイル
+
+=head1 SYNOPSIS
+
+  use Unicode::Precis::SASLprep;
+  
+  $profile = Unicode::Precis::UsernameCaseMapped->new;
+  $profile = Unicode::Precis::UsernameCasePreserved->new;
+  $profile = Unicode::Precis::OpaqueString->new;
+  
+  $string = $profile->enforce($input);
+  $equals = $profile->compare($inputA, $inputB);
+
+=head1 DESCRIPTION
+
+L<Unicode::Precis::SASLprep~[ja]>は、3種のPRECISプロファイル、
+C<UsernameCaseMapped>、C<UsernameCasePreserved>、C<OpaqueString>を提供する。
+
+=head1 SEE ALSO
+
+L<Unicode::Precis~[ja]>.
+
+draft-ietf-precis-saslprepbis,
+I<Preparation, Enforcement, and Comparison of Internationalized Strings
+Representing Usernames and Passwords>.
+L<https://tools.ietf.org/html/draft-ietf-precis-saslprepbis>.
+
+=head1 AUTHOR
+
+Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2015 by Hatuka*nezumi - IKEDA Soji
+
+This library is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself. For more details, see the full text of
+the licenses at <http://dev.perl.org/licenses/>.
+
+This program is distributed in the hope that it will be
+useful, but without any warranty; without even the implied
+warranty of merchantability or fitness for a particular purpose.
+
+=cut

@@ -3,7 +3,7 @@
 
 package Unicode::Precis::Utils;
 
-use 5.008001;
+use 5.008;
 use strict;
 use warnings;
 
@@ -88,11 +88,6 @@ This module can not handle Unicode string on EBCDIC platforms.
 
 The mappings this module can provide are restricted by
 Unicode database of Perl core.
-
-=item *
-
-Perl 5.8.1 and later are supported, since earlier versions do not provide
-halfwidth and fullwidth decomposition mappings.
 
 =back
 

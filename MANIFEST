@@ -1,6 +1,8 @@
 Changes
 lib/POD2/JA/Unicode/Precis.pod
+lib/POD2/JA/Unicode/Precis/SASLprep.pod
 lib/Unicode/Precis.pm
+lib/Unicode/Precis/SASLprep.pm
 Makefile.PL
 MANIFEST
 README

@@ -1,8 +1,9 @@
+
 =encoding utf-8
 
 =head1 NAME
 
-Unicode::Precis - RFC 7564 PRECISフレームワーク
+Unicode::Precis~[ja] - RFC 7564 PRECISフレームワーク - 実施と比較
 
 =head1 SYNOPSIS
 
@@ -14,7 +15,7 @@ Unicode::Precis - RFC 7564 PRECISフレームワーク
 =head1 DESCRIPTION
 
 L<Unicode::Precis> は、PRECISフレームワークに基づいて
-UTF-8バイト文字列やユニコード文字列への適用を行う。
+UTF-8バイト文字列やユニコード文字列の実施と比較を行う。
 
 なお当モジュールは、バイト文字列をアップグレードすることなくUTF-8列として扱う。
 
@@ -25,7 +26,7 @@ UTF-8バイト文字列やユニコード文字列への適用を行う。
 =item new ( options ... )
 
 I<コンストラクタ>。
-L<Unicode::Precis>のインスタンスを作成する。
+L<Unicode::Precis>クラスのインスタンスを作成する。
 次のオプションを指定できる。
 
 =over
@@ -35,10 +36,26 @@ L<Unicode::Precis>のインスタンスを作成する。
 指定すると、半角および全角のキャラクタをそれらの分解マッピングに変換する
 (decomposeWidth()を使う)。
 
-=item AdditionalMappingRule =E<gt> 'Space'
+=item AdditionalMappingRule =E<gt> 'I<オプション...>'
 
-指定すると、非ASCIIの空白をASCIIの空白に変換する
+指定すると、空白を変換する。I<オプション...>には次の語 (複数可) を指定できる。
+
+=over
+
+=item C<MapSpace>
+
+非ASCIIの空白をASCIIの空白に変換する
 (mapSpace()を使う)。
+
+=item C<StripSpace>
+
+文字列の始まりや終わりのASCII空白文字を取り除く。
+
+=item C<UnifySpace>
+
+複数のASCII空白文字の並びを単一のASCII空白文字に変換する。
+
+=back
 
 =item CaseMappingRule =E<gt> 'Fold'
 
@@ -67,7 +84,7 @@ L<Unicode::Precis>のインスタンスを作成する。
 
 I<インスタンスメソッド>。
 文字列を比較する。
-両方の文字列の適用が成功すれば、compareExactly()
+両方の文字列の実施が成功すれば、compareExactly()
 を使って両者を比較し、C<1>かC<0>を返す。
 そうでなければ、C<undef>を返す。
 
@@ -76,7 +93,7 @@ I<インスタンスメソッド>。
 =item enforce ( $string )
 
 I<インスタンスメソッド>。
-文字列の適用を行う。
+文字列の実施を行う。
 処理が成功すれば、引数$stringを変更し、それを返す。
 そうでなければ、C<undef>を返す。
 
@@ -90,7 +107,7 @@ I<インスタンスメソッド>。
 
 当モジュールが提供できるレパートリは、Perl
 本体のユニコードデータベースが提供するものにかぎられる。
-これを超えるキャラクタは、最新版のユニコードで利用可能であっても
+この範囲外のキャラクタは、最新版のユニコードで利用可能であっても
 「未割り当て」とみなされ、認められない。下表に、Perl
 の各版が実装するユニコードの版を示す。
 
@@ -115,7 +132,8 @@ RFC 7564 I<PRECIS Framework: Preparation, Enforcement, and Comparison of
 Internationalized Strings in Application Protocols>.
 L<https://tools.ietf.org/html/rfc7564>.
 
-L<Unicode::BiDiRule>, L<Unicode::Normalize>, L<Unicode::Precis::Preparation>,
+L<Unicode::BiDiRule~[ja]>, L<Unicode::Normalize>,
+L<Unicode::Precis::Preparation~[ja]>,
 L<Unicode::Precis::Utils>.
 
 =head1 AUTHOR
@@ -135,4 +153,3 @@ useful, but without any warranty; without even the implied
 warranty of merchantability or fitness for a particular purpose.
 
 =cut
-

@@ -1,4 +1,4 @@
-use 5.008001;
+use 5.008;
 
 package MY;
 use ExtUtils::MakeMaker;
