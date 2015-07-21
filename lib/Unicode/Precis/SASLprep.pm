@@ -4,6 +4,9 @@
 use strict;
 use warnings;
 
+package Unicode::Precis::SASLprep;
+our $VERSION = '0.02';
+
 package Unicode::Precis::UsernameCaseMapped;
 {
     use base qw(Unicode::Precis);
@@ -39,7 +42,7 @@ package Unicode::Precis::OpaqueString;
 
     sub new {
         bless shift->SUPER::new(
-            AdditionalMappingRule => 'Space=Map',
+            AdditionalMappingRule => 'MapSpace',
             NormalizationRule     => 'NFC',
             StringClass           => 'FreeFormClass',
         );

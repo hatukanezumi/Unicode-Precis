@@ -1,5 +1,9 @@
 Revision history for Perl extension Unicode::Precis.
 
+0.02  Tue Jul 21 2015
+
+  - Fixed some typos in code.
+
 0.01  Mon Jul 20 2015
 
   - Adding "SASLprep" PRECIS profiles.

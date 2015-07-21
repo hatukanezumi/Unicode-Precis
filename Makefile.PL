@@ -6,7 +6,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME               => 'Unicode::Precis',
     VERSION_FROM       => 'lib/Unicode/Precis.pm',
-    MIN_PERL_VERSION   => 5.008007,
+    MIN_PERL_VERSION   => 5.008,
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => '6.26',
         'Test::More'          => '0.45',
@@ -32,8 +32,13 @@ WriteMakefile(
             repository => 'https://github.com/hatukanezumi/Unicode-Precis/',
         },
     },
-    dist => {
-        PREOP =>
-            MY->cd('Utils', '$(MAKE) preop DISTVNAME=../$(DISTVNAME)/Utils')
-    },
+    dist => {PREOP => '$(MAKE) preop',},
 );
+
+sub postamble {
+    my $self = shift;
+
+    my $preop =
+        $self->cd('Utils', '$(MAKE) preop DISTVNAME=../$(DISTVNAME)/Utils');
+    return "preop:\n\t$preop\n";
+}

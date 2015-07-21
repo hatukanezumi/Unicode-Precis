@@ -15,7 +15,7 @@ use Unicode::Precis::Preparation qw(prepare FreeFormClass IdentifierClass);
 use Unicode::Precis::Utils
     qw(compareExactly decomposeWidth foldCase mapSpace);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;    # see L<perlmodstyle>
 
 sub new {
