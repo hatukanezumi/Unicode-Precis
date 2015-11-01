@@ -1,16 +1,35 @@
+#-*- perl -*-
+#-*- coding: utf-8 -*-
+
+package Unicode::Precis::OpaqueString;
+
+use strict;
+use warnings;
+use base qw(Unicode::Precis);
+
+our $VERSION = '1.000';
+
+sub new {
+    bless shift->SUPER::new(
+        AdditionalMappingRule => 'MapSpace',
+        NormalizationRule     => 'NFC',
+        StringClass           => 'FreeFormClass',
+    );
+}
+
+1;
+__END__
 
 =encoding utf-8
 
 =head1 NAME
 
-Unicode::Precis::SASLprep~[ja] - PRECIS「SASLprep」プロファイル
+Unicode::Precis::OpaqueString - PRECIS OpaqueString Profile
 
 =head1 SYNOPSIS
 
-  use Unicode::Precis::SASLprep;
+  use Unicode::Precis::OpaqueString;
   
-  $profile = Unicode::Precis::UsernameCaseMapped->new;
-  $profile = Unicode::Precis::UsernameCasePreserved->new;
   $profile = Unicode::Precis::OpaqueString->new;
   
   $string = $profile->enforce($input);
@@ -18,17 +37,15 @@ Unicode::Precis::SASLprep~[ja] - PRECIS「SASLprep」プロファイル
 
 =head1 DESCRIPTION
 
-L<Unicode::Precis::SASLprep~[ja]>は、3種のPRECISプロファイル、
-C<UsernameCaseMapped>、C<UsernameCasePreserved>、C<OpaqueString>を提供する。
+L<Unicode::Precis::OpaqueString> provides the PRECIS C<OpaqueString> profile.
 
 =head1 SEE ALSO
 
-L<Unicode::Precis~[ja]>.
+L<Unicode::Precis>.
 
-draft-ietf-precis-saslprepbis,
+RFC 7613
 I<Preparation, Enforcement, and Comparison of Internationalized Strings
 Representing Usernames and Passwords>.
-L<https://tools.ietf.org/html/draft-ietf-precis-saslprepbis>.
 
 =head1 AUTHOR
 

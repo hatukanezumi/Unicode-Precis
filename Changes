@@ -1,5 +1,11 @@
 Revision history for Perl extension Unicode::Precis.
 
+1.000  Mon Sep 07 2015
+
+  - Unicode::Precis::SASLprep was splitted into three packages:
+    Unicode::Precis::OpaqueString, Unicode::Precis::UsernameCaseMapped and
+    Unicode::Precis::UsernameCasePreserved.
+
 0.02  Tue Jul 21 2015
 
   - Fixed some typos in code.
