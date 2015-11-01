@@ -19,7 +19,7 @@ WriteMakefile(
         'Encode'                       => '0',
         'Exporter'                     => '0',
         'Unicode::BiDiRule'            => '0.02',
-        'Unicode::Normalize'           => '0.28',
+        'Unicode::Normalize'           => '1.23',
         'Unicode::Precis::Preparation' => '0.01',
         'XSLoader'                     => '0',
     },

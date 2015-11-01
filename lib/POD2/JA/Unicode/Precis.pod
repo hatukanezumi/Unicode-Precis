@@ -124,7 +124,7 @@ I<インスタンスメソッド>。
 
 =head1 RESTRICTIONS
 
-当モジュールはEBCDICプラットフォームに対応しない。
+当モジュールはEBCDICプラットフォームでのユニコード文字列を扱えない。
 
 =head1 SEE ALSO
 

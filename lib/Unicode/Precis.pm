@@ -7,7 +7,6 @@ use 5.008007;    # Use Unicode 4.1.0 or later.
 use strict;
 use warnings;
 
-BEGIN { die 'Can\'t use ' . __PACKAGE__ unless pack('U', 0x0041) eq 'A'; }
 use Encode qw(is_utf8 _utf8_on _utf8_off);
 use Unicode::BiDiRule qw(check);
 use Unicode::Normalize qw(normalize);
@@ -59,6 +58,11 @@ sub enforce {
         if (is_utf8($string)) {
             $string =
                 eval { normalize(uc $self->{NormalizationRule}, $string) };
+        } elsif ("\t" eq "\005") {    # EBCDIC
+            $string = Encode::decode('UTF-8', $string);
+            $string =
+                eval { normalize(uc $self->{NormalizationRule}, $string) };
+            $string = Encode::encode('UTF-8', $string) if defined $string;
         } else {
             _utf8_on($string);
             $string =
@@ -219,7 +223,7 @@ Unicode.  Table below lists implemented Unicode version by each Perl version.
 
 =head1 RESTRICTIONS
 
-This module does not support EBCDIC platforms.
+This module can not handle Unicode string on EBCDIC platforms.
 
 =head1 SEE ALSO
 

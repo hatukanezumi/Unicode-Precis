@@ -5,6 +5,8 @@ Revision history for Perl extension Unicode::Precis.
   - Unicode::Precis::SASLprep was splitted into three packages:
     Unicode::Precis::OpaqueString, Unicode::Precis::UsernameCaseMapped and
     Unicode::Precis::UsernameCasePreserved.
+  - Needs Unicode::Normalize 1.23 or later to support UTF-8 bytestring on
+    EBCDIC platforms and to provide faster XS implementation.
 
 0.02  Tue Jul 21 2015
 
