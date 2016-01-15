@@ -1,5 +1,9 @@
 Revision history for Perl extension Unicode::Precis.
 
+1.100  Fri Jan 15 2016
+
+  - Adding "Nickname" PRECIS profile: Unicode::Precis::Nickname.
+
 1.000  Mon Sep 07 2015
 
   - Unicode::Precis::SASLprep was splitted into three packages:

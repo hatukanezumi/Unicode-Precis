@@ -14,7 +14,7 @@ use Unicode::Precis::Preparation qw(prepare FreeFormClass IdentifierClass);
 use Unicode::Precis::Utils
     qw(compareExactly decomposeWidth foldCase mapSpace);
 
-our $VERSION = '1.000';
+our $VERSION = '1.100';
 $VERSION = eval $VERSION;    # see L<perlmodstyle>
 
 sub new {
@@ -240,7 +240,7 @@ Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2015 by Hatuka*nezumi - IKEDA Soji
+(C) 2015, 2016 Hatuka*nezumi - IKEDA Soji
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. For more details, see the full text of
