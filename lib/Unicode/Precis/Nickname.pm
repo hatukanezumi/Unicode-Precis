@@ -7,12 +7,12 @@ use strict;
 use warnings;
 use base qw(Unicode::Precis);
 
-our $VERSION = '1.100';
+our $VERSION = '1.199_01';
 
 sub new {
     bless shift->SUPER::new(
         AdditionalMappingRule => 'MapSpace StripSpace UnifySpace',
-	CaseMappingRule       => 'Fold',
+	CaseMappingRule       => 'Lower',
         NormalizationRule     => 'NFKC',
         StringClass           => 'FreeFormClass',
     );
@@ -44,7 +44,7 @@ L<Unicode::Precis::Nickname> provides the PRECIS C<Nickname> profile.
 
 L<Unicode::Precis>.
 
-RFC 7700
+RFC 8266
 I<Preparation, Enforcement, and Comparison of Internationalized Strings
 Representing Nicknames>.
 
@@ -54,7 +54,7 @@ Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-(C) 2016 Hatuka*nezumi - IKEDA Soji
+(C) 2016, 2018 Hatuka*nezumi - IKEDA Soji
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. For more details, see the full text of

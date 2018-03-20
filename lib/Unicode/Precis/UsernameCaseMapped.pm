@@ -7,12 +7,12 @@ use strict;
 use warnings;
 use base qw(Unicode::Precis);
 
-our $VERSION = '1.000';
+our $VERSION = '1.199_01';
 
 sub new {
     bless shift->SUPER::new(
         WidthMappingRule   => 'Decomposition',
-        CaseMappingRule    => 'Fold',
+        CaseMappingRule    => 'Lower',
         NormalizationRule  => 'NFC',
         DirectionalityRule => 'BiDi',
         StringClass        => 'IdentifierClass',
@@ -46,7 +46,7 @@ C<UsernameCaseMapped> profile.
 
 L<Unicode::Precis>.
 
-RFC 7613
+RFC 8265
 I<Preparation, Enforcement, and Comparison of Internationalized Strings
 Representing Usernames and Passwords>.
 
@@ -56,7 +56,7 @@ Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2015 by Hatuka*nezumi - IKEDA Soji
+Copyright (C) 2015, 2018 by Hatuka*nezumi - IKEDA Soji
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. For more details, see the full text of

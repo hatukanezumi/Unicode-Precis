@@ -1,5 +1,11 @@
 Revision history for Perl extension Unicode::Precis.
 
+1.199_01  Tue Mar 20 2018
+
+  - Caught up update of RFC: Use lowerCase() instead of foldCase() according
+    to RFC 8264.
+  - Followed deprecation of to_utf8_fold() on Perl 5.25.9.
+
 1.100  Fri Jan 15 2016
 
   - Adding "Nickname" PRECIS profile: Unicode::Precis::Nickname.

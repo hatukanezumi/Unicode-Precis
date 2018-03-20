@@ -19,6 +19,11 @@
 #else
 #    define SvTRULYREADONLY(sv) (SvREADONLY(sv) && !SvIsCOW(sv))
 #endif
+/* to_utf8_fold() was deprecated. */
+#if !(PERL_VERSION >= 26 || (PERL_VERSION == 25 && PERL_SUBVERSION >= 9))
+#    define toFOLD_utf8_safe(p, e, s, lenp) (to_utf8_fold(p, s, lenp))
+#    define toLOWER_utf8_safe(p, e, s, lenp) (to_utf8_lower(p, s, lenp))
+#endif
 
 #include "precis_utils.c"
 
@@ -55,6 +60,7 @@ _map(string)
 	foldCase       = 1 
 	mapSpace       = 2
 	decomposeWidth = 3
+	lowerCase      = 4
     PREINIT:
 	char *buf, *new = NULL;
 	STRLEN buflen, newlen;

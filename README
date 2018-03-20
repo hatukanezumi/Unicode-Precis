@@ -1,8 +1,8 @@
 ====================================================================
-Unicode-Precis - RFC 7564 PRECIS Framework
+Unicode-Precis - RFC 8264 PRECIS Framework
 ====================================================================
 
-Unicode-Precis Package is Copyright (C) 2015,
+Unicode-Precis Package is Copyright (C) 2015, 2016, 2018,
 by Hatuka*nezumi - IKEDA Soji.
 
 This package is free software; you can redistribute it and/or modify it 
@@ -24,11 +24,11 @@ Documentations
 Two modules are contained. For more details read following POD
 documentations:
 
-  Unicode::Precis - RFC 7564 PRECIS Framework
+  Unicode::Precis - RFC 8264 PRECIS Framework
   Unicode::Precis::Utils - Utility functions for PRECIS enforcement
 
 For japonophones, a POD in Japanese language is also included:
 
-  POD2::JA::Unicode::Precis - RFC 7564 PRECISフレームワーク
+  POD2::JA::Unicode::Precis - RFC 8264 PRECISフレームワーク
 
 $$

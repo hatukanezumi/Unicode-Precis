@@ -3,7 +3,7 @@
 
 =head1 NAME
 
-Unicode::Precis~[ja] - RFC 7564 PRECISフレームワーク - 実施と比較
+Unicode::Precis~[ja] - RFC 8264 PRECISフレームワーク - 実施と比較
 
 =head1 SYNOPSIS
 
@@ -128,9 +128,9 @@ I<インスタンスメソッド>。
 
 =head1 SEE ALSO
 
-RFC 7564 I<PRECIS Framework: Preparation, Enforcement, and Comparison of
+RFC 8264 I<PRECIS Framework: Preparation, Enforcement, and Comparison of
 Internationalized Strings in Application Protocols>.
-L<https://tools.ietf.org/html/rfc7564>.
+L<https://tools.ietf.org/html/rfc8264>.
 
 L<Unicode::BiDiRule~[ja]>, L<Unicode::Normalize>,
 L<Unicode::Precis::Preparation~[ja]>,
@@ -142,7 +142,7 @@ Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-(C) 2015, 2016 Hatuka*nezumi - IKEDA Soji
+(C) 2015, 2016, 2018 Hatuka*nezumi - IKEDA Soji
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. For more details, see the full text of

@@ -9,10 +9,10 @@ use warnings;
 
 use base qw(Exporter);
 our %EXPORT_TAGS =
-    ('all' => [qw(compareExactly decomposeWidth foldCase mapSpace)]);
+    ('all' => [qw(compareExactly decomposeWidth foldCase lowerCase mapSpace)]);
 our @EXPORT_OK = @{$EXPORT_TAGS{'all'}};
 
-our $VERSION    = '0.01';
+our $VERSION    = '1.199_01';
 our $XS_VERSION = $VERSION;
 $VERSION = eval $VERSION;    # see L<perlmodstyle>
 
@@ -56,9 +56,14 @@ Otherwise, returns C<undef>.
 
 =over
 
+=item lowerCase ( $string )
+
+Applys Unicode lower case operation to $string.
+
 =item foldCase ( $string )
 
 Applys Unicode Default Case Folding to $string.
+Instead of this, use of C<lowerCase> is recommended.
 
 =item mapSpace ( $string )
 
@@ -101,7 +106,7 @@ Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2015 by Hatuka*nezumi - IKEDA Soji
+Copyright (C) 2015, 2018 by Hatuka*nezumi - IKEDA Soji
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. For more details, see the full text of

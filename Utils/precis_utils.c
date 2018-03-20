@@ -1,7 +1,7 @@
 /*
  * Unicode-Precis
  *
- * Copyright (C) 2015 by Hatuka*nezumi - IKEDA Soji
+ * Copyright (C) 2015, 2018 by Hatuka*nezumi - IKEDA Soji
  *
  * This library is free software; you can redistribute it and/or modify it
  * under the same terms as Perl itself. For more details, see the full text of
@@ -13,6 +13,184 @@
  */
 
 /* Begin auto-generated maps */
+
+static void *widthdecomp_map_EF_BF[64] = {
+    NULL, NULL, "\xE3\x85\x8F", "\xE3\x85\x90", "\xE3\x85\x91",
+    "\xE3\x85\x92", "\xE3\x85\x93", "\xE3\x85\x94", NULL, NULL,
+    "\xE3\x85\x95", "\xE3\x85\x96", "\xE3\x85\x97", "\xE3\x85\x98",
+    "\xE3\x85\x99", "\xE3\x85\x9A", NULL, NULL, "\xE3\x85\x9B",
+    "\xE3\x85\x9C", "\xE3\x85\x9D", "\xE3\x85\x9E", "\xE3\x85\x9F",
+    "\xE3\x85\xA0", NULL, NULL, "\xE3\x85\xA1", "\xE3\x85\xA2",
+    "\xE3\x85\xA3", NULL, NULL, NULL, "\xC2\xA2", "\xC2\xA3", "\xC2\xAC",
+    "\xC2\xAF", "\xC2\xA6", "\xC2\xA5", "\xE2\x82\xA9", NULL,
+    "\xE2\x94\x82", "\xE2\x86\x90", "\xE2\x86\x91", "\xE2\x86\x92",
+    "\xE2\x86\x93", "\xE2\x96\xA0", "\xE2\x97\x8B", NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL
+};
+
+static void *widthdecomp_map_EF_BE[64] = {
+    "\xE3\x82\xBF", "\xE3\x83\x81", "\xE3\x83\x84", "\xE3\x83\x86",
+    "\xE3\x83\x88", "\xE3\x83\x8A", "\xE3\x83\x8B", "\xE3\x83\x8C",
+    "\xE3\x83\x8D", "\xE3\x83\x8E", "\xE3\x83\x8F", "\xE3\x83\x92",
+    "\xE3\x83\x95", "\xE3\x83\x98", "\xE3\x83\x9B", "\xE3\x83\x9E",
+    "\xE3\x83\x9F", "\xE3\x83\xA0", "\xE3\x83\xA1", "\xE3\x83\xA2",
+    "\xE3\x83\xA4", "\xE3\x83\xA6", "\xE3\x83\xA8", "\xE3\x83\xA9",
+    "\xE3\x83\xAA", "\xE3\x83\xAB", "\xE3\x83\xAC", "\xE3\x83\xAD",
+    "\xE3\x83\xAF", "\xE3\x83\xB3", "\xE3\x82\x99", "\xE3\x82\x9A",
+    "\xE3\x85\xA4", "\xE3\x84\xB1", "\xE3\x84\xB2", "\xE3\x84\xB3",
+    "\xE3\x84\xB4", "\xE3\x84\xB5", "\xE3\x84\xB6", "\xE3\x84\xB7",
+    "\xE3\x84\xB8", "\xE3\x84\xB9", "\xE3\x84\xBA", "\xE3\x84\xBB",
+    "\xE3\x84\xBC", "\xE3\x84\xBD", "\xE3\x84\xBE", "\xE3\x84\xBF",
+    "\xE3\x85\x80", "\xE3\x85\x81", "\xE3\x85\x82", "\xE3\x85\x83",
+    "\xE3\x85\x84", "\xE3\x85\x85", "\xE3\x85\x86", "\xE3\x85\x87",
+    "\xE3\x85\x88", "\xE3\x85\x89", "\xE3\x85\x8A", "\xE3\x85\x8B",
+    "\xE3\x85\x8C", "\xE3\x85\x8D", "\xE3\x85\x8E", NULL
+};
+
+static void *widthdecomp_map_EF_BD[64] = {
+    "\x60", "\x61", "\x62", "\x63", "\x64", "\x65", "\x66", "\x67", "\x68",
+    "\x69", "\x6A", "\x6B", "\x6C", "\x6D", "\x6E", "\x6F", "\x70", "\x71",
+    "\x72", "\x73", "\x74", "\x75", "\x76", "\x77", "\x78", "\x79", "\x7A",
+    "\x7B", "\x7C", "\x7D", "\x7E", "\xE2\xA6\x85", "\xE2\xA6\x86",
+    "\xE3\x80\x82", "\xE3\x80\x8C", "\xE3\x80\x8D", "\xE3\x80\x81",
+    "\xE3\x83\xBB", "\xE3\x83\xB2", "\xE3\x82\xA1", "\xE3\x82\xA3",
+    "\xE3\x82\xA5", "\xE3\x82\xA7", "\xE3\x82\xA9", "\xE3\x83\xA3",
+    "\xE3\x83\xA5", "\xE3\x83\xA7", "\xE3\x83\x83", "\xE3\x83\xBC",
+    "\xE3\x82\xA2", "\xE3\x82\xA4", "\xE3\x82\xA6", "\xE3\x82\xA8",
+    "\xE3\x82\xAA", "\xE3\x82\xAB", "\xE3\x82\xAD", "\xE3\x82\xAF",
+    "\xE3\x82\xB1", "\xE3\x82\xB3", "\xE3\x82\xB5", "\xE3\x82\xB7",
+    "\xE3\x82\xB9", "\xE3\x82\xBB", "\xE3\x82\xBD"
+};
+
+static void *widthdecomp_map_EF_BC[64] = {
+    NULL, "\x21", "\x22", "\x23", "\x24", "\x25", "\x26", "\x27", "\x28",
+    "\x29", "\x2A", "\x2B", "\x2C", "\x2D", "\x2E", "\x2F", "\x30", "\x31",
+    "\x32", "\x33", "\x34", "\x35", "\x36", "\x37", "\x38", "\x39", "\x3A",
+    "\x3B", "\x3C", "\x3D", "\x3E", "\x3F", "\x40", "\x41", "\x42", "\x43",
+    "\x44", "\x45", "\x46", "\x47", "\x48", "\x49", "\x4A", "\x4B", "\x4C",
+    "\x4D", "\x4E", "\x4F", "\x50", "\x51", "\x52", "\x53", "\x54", "\x55",
+    "\x56", "\x57", "\x58", "\x59", "\x5A", "\x5B", "\x5C", "\x5D", "\x5E",
+    "\x5F"
+};
+
+static void *widthdecomp_map_EF[64] = {
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    widthdecomp_map_EF_BC, widthdecomp_map_EF_BD, widthdecomp_map_EF_BE,
+    widthdecomp_map_EF_BF
+};
+
+static void *widthdecomp_map_E3_80[64] = {
+    "\x20", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL
+};
+
+static void *widthdecomp_map_E3[64] = {
+    widthdecomp_map_E3_80, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+static void *widthdecomp_map[64] = {
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    widthdecomp_map_E3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, widthdecomp_map_EF, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E3_80[64] = {
+    "\x20", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E3[64] = {
+    space_map_E3_80, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E2_81[64] = {
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, "\x20", NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E2_80[64] = {
+    "\x20", "\x20", "\x20", "\x20", "\x20", "\x20", "\x20", "\x20", "\x20",
+    "\x20", "\x20", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, "\x20", NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E2[64] = {
+    space_map_E2_80, space_map_E2_81, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E1_9A[64] = {
+    "\x20", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_E1[64] = {
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, space_map_E1_9A, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map_C2[64] = {
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "\x20", NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL
+};
+
+static void *space_map[64] = {
+    NULL, NULL, space_map_C2, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    space_map_E1, space_map_E2, space_map_E3, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+};
 
 /* End of auto-generated maps */
 
@@ -101,7 +279,7 @@ static STRLEN _map(U8 **newptr, U8 * buf, const size_t buflen, int ix)
 
 	switch (ix) {
 	case 1:			/* foldCase */
-	    to_utf8_fold(p, folded, &mappedlen);
+	    toFOLD_utf8_safe(p, p + len, folded, &mappedlen);
 	    if (mappedlen <= 0)
 		goto nomap;
 	    mapped = (char *)folded;
@@ -137,6 +315,13 @@ static STRLEN _map(U8 **newptr, U8 * buf, const size_t buflen, int ix)
 		goto nomap;
 	    mapped = (char *)mapent;
 	    for (mappedlen = 0; mapped[mappedlen] != '\0'; mappedlen++);
+	    break;
+
+	case 4:			/* lowerCase */
+	    toLOWER_utf8_safe(p, p + len, folded, &mappedlen);
+	    if (mappedlen <= 0)
+		goto nomap;
+	    mapped = (char *)folded;
 	    break;
 
 	default:

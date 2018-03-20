@@ -12,9 +12,9 @@ use Unicode::BiDiRule qw(check);
 use Unicode::Normalize qw(normalize);
 use Unicode::Precis::Preparation qw(prepare FreeFormClass IdentifierClass);
 use Unicode::Precis::Utils
-    qw(compareExactly decomposeWidth foldCase mapSpace);
+    qw(compareExactly decomposeWidth foldCase lowerCase mapSpace);
 
-our $VERSION = '1.100';
+our $VERSION = '1.199_01';
 $VERSION = eval $VERSION;    # see L<perlmodstyle>
 
 sub new {
@@ -53,6 +53,8 @@ sub enforce {
     }
     if (lc($self->{CaseMappingRule} || '') eq 'fold') {
         foldCase($string);
+    } elsif (lc($self->{CaseMappingRule} || '') eq 'lower') {
+        lowerCase($string);
     }
     if ($self->{NormalizationRule}) {
         if (is_utf8($string)) {
@@ -97,7 +99,7 @@ __END__
 
 =head1 NAME
 
-Unicode::Precis - RFC 7564 PRECIS Framework - Enforcement and Comparison
+Unicode::Precis - RFC 8264 PRECIS Framework - Enforcement and Comparison
 
 =head1 SYNOPSIS
 
@@ -155,10 +157,11 @@ character.
 
 =back
 
-=item CaseMappingRule =E<gt> 'Fold'
+=item CaseMappingRule =E<gt> 'Fold' | 'Lower'
 
-If specified, maps uppercase and titlecase characters to lowercase
-using foldCase().
+If specified, maps uppercase and titlecase characters to lowercase,
+using foldCase() (C<'Fold'>) or lowerCase() (C<'Lower'>).
+The latter is recommended.
 
 =item NormalizationRule =E<gt> 'NFC' | 'NFKC' | 'NFD' | 'NFKD'
 
@@ -179,6 +182,9 @@ If specified, replaces and/or checks string with the result of subroutine
 referred by $subref.
 
 =back
+
+B<However>, you are encouraged to use existing profiles C<Unicode::Precis::*>
+instead of specifying rule set by your own.
 
 =item compare ( $stringA, $stringB )
 
@@ -227,9 +233,9 @@ This module can not handle Unicode string on EBCDIC platforms.
 
 =head1 SEE ALSO
 
-RFC 7564 I<PRECIS Framework: Preparation, Enforcement, and Comparison of
+RFC 8264 I<PRECIS Framework: Preparation, Enforcement, and Comparison of
 Internationalized Strings in Application Protocols>.
-L<https://tools.ietf.org/html/rfc7564>.
+L<https://tools.ietf.org/html/rfc8264>.
 
 L<Unicode::BiDiRule>, L<Unicode::Normalize>, L<Unicode::Precis::Preparation>,
 L<Unicode::Precis::Utils>.
@@ -240,7 +246,7 @@ Hatuka*nezumi - IKEDA Soji, E<lt>hatuka@nezumi.nuE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-(C) 2015, 2016 Hatuka*nezumi - IKEDA Soji
+(C) 2015, 2016, 2018 Hatuka*nezumi - IKEDA Soji
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. For more details, see the full text of
